@@ -358,7 +358,7 @@
 //     }};
 // const {border, bg} = options.colors;
 // console.log(border)
-  
+
 // for (let key in options) {
 //     console.log(`Свойство ${key} имеет значение ${options[key]}`)
 // }
@@ -426,39 +426,35 @@
 // console.log(isChecked&&!isClose) 
 // console.log(2+2*2)
 
-// const numberOfFilms = prompt('Сколько фильмов вы уже посмотрели', '');
+let numberOfFilms;
 
+function start() {
+    numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели', '');
+    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)); {
+        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели', '');
+    }
+}
+// start();
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
+};
 
-// const personalMovieDB = {
-//     count: numberOfFilms,
-//     movies: {},
-//     actors: {},
-//     genres: [],
-//     privat: false
-// };
-
-// for(let i=0; i<2; i++) {
-//     const a = prompt('Один из последних просмотренных фильмов?',''),
-//           b = +prompt('На сколько оцените его?','');
-// if (a!=null && b!=null && a!='' && b!='' && a.length<=50 ){
-//     personalMovieDB.movies[a] = b;}
-// else {
-//     i-- }};
-// let i=0;
-// while (i<2) {
-//     const a = prompt('Один из последних просмотренных фильмов?',''),
-//           b = +prompt('На сколько оцените его?','');
-// personalMovieDB.movies[a] = b;
-// i++;}
-
-// let i=0;
-// do {
-//     const a = prompt('Один из последних просмотренных фильмов?',''),
-//           b = +prompt('На сколько оцените его?','');
-//           personalMovieDB.movies[a] = b;
-//           i++;}
-// while (i<2);
-
+function rememberMyFilms() {
+    for (let i = 0; i < 2; i++) {
+        const a = prompt('Один из последних просмотренных фильмов?', ''),
+            b = +prompt('На сколько оцените его?', '');
+        if (a != null && b != null && a != '' && b != '' && a.length <= 50) {
+            personalMovieDB.movies[a] = b;
+        } else {
+            i--
+        }
+    };
+};
+// rememberMyFilms()
 // let i=0;
 // while(i<2){
 //     const a = prompt('Один из последних просмотренных фильмов?',''),
@@ -466,16 +462,35 @@
 //           personalMovieDB.movies[a] = b;
 //           i++;}
 
-// if (personalMovieDB.count<10) 
-// {console.log('Просмотрено довольно мало фильмов')}
-// else if (personalMovieDB.count<30) 
-// {console.log('Вы классический зритель')}
-// else if (personalMovieDB.count>=30) 
-// {console.log('Вы киноман')}
-// else {console.log('Произошла ошибка')}
+function detectPersonalLevel() {
+    if (personalMovieDB.count < 10) {
+        console.log('Просмотрено довольно мало фильмов')
+    } else if (personalMovieDB.count < 30) {
+        console.log('Вы классический зритель')
+    } else if (personalMovieDB.count >= 30) {
+        console.log('Вы киноман')
+    } else {
+        console.log('Произошла ошибка')
+    }
+};
+// detectPersonalLevel();
+
+function showMyDB() {
+    if (personalMovieDB.privat == false) {
+        console.log(personalMovieDB)
+    }
+};
+showMyDB();
+
+function writeYourGenres() {
+    for (let i = 1; i < 4; i++) {
+        const result = prompt(`Ваш любимый жанр под номером ${i}`)
+        personalMovieDB.genres[i - 1] = result
+    }
+};
+writeYourGenres();
 
 // console.log(personalMovieDB)
-
 // const num = 50;
 
 // if (num < 49) {
@@ -520,10 +535,156 @@
 // let i = 0;
 // while(i<5){i++;console.log(i)}
 // for(let i=0; i<9;i++){console.log(i
-    // )}
+// )}
 // let i = 0;
 // do{i++;console.log(i)}
 // while(i<3)
 
 // let i=50;
 // while(i<60){i++;console.log(i)}
+
+// let i=0;
+// while(i<4){i++;console.log(i)}
+// for(i=0;i<9;i++){console.log(i)}
+// let i=0;
+// do{i++;console.log(i)}
+// while(i<12) 
+// let num=20
+// showFirstMessage('Hello world', 'Let`s repeat it', 'Spain is EU');
+// function showFirstMessage(text, repeat, spain){
+//     console.log(text);
+//     console.log(repeat);
+//     console.log(spain);
+//     num=20;
+//     console.log(num)
+// }           
+
+// function calc(a,b){
+//     return(a+b);
+// }
+// console.log(calc(4,3));
+// console.log(calc(5,3));
+// console.log(calc(9,3));
+
+// function polar() {
+//     console.log(11111);
+// }; polar();
+
+// let polite = function(){console.log(22222);};
+// polite();
+
+// function showFirstMessage(text,require){
+//     console.log((text),(require))};
+// showFirstMessage("first message", "require");
+
+// function calc(a,b){
+//     return a*1;
+// };
+// console.log(calc(4,6))
+// let i=0;
+// do{i++;console.log(i)}
+// while(i<5)
+// for (let i=0;i<9;i++){
+// console.log(1)
+// }
+// opp(14)
+// function opp(numb){
+//     let num = numb;
+//     return num;
+// };
+// const numbb=opp
+// console.log(numbb)
+// const number = opp()
+// console.log(number)
+
+// let userName = 'Вася';
+
+// function showMessage() {
+//   let userName = "Петя"; // (1) изменяем значение внешней переменной
+
+//   let message = 'Привет, ' + userName;
+//   alert(message);
+// }
+
+// alert( userName ); // Вася перед вызовом функции
+
+// showMessage();
+
+// alert( userName ); // Петя, значение внешней переменной было изменено функцией
+
+// function showMessage(from, text) { // аргументы: from, text
+//     alert(from + ': ' + text);
+
+//   }
+
+//   showMessage('Аня', 'Привет!'); // Аня: Привет! (*)
+//   showMessage('Оля', "Как дела?"); // Аня: Как дела? (**)
+//   showMessage('Хорошо', 'твои как?');
+// function checkAge(age) {
+//     if (age >= 18 && confirm('А родители разрешили?')) {
+//       return true;
+// } else {
+//   return confirm('А родители разрешили?');
+//     }
+//   }
+
+//   let age = prompt('Сколько вам лет?', 18);
+
+//   if (checkAge(age)) {
+//     alert( 'Доступ получен' );
+//   } else {
+//     alert( 'Доступ закрыт' );
+//   }
+
+// function min(a,b){
+//     if (a<b){
+//     return a;
+//     } 
+//     else {return b}
+// }
+// min(2,5);
+// min(3,-1);
+// min(1,1)
+// function pow(x, n) {
+//     let result = x;
+//     for (let i = 1; i < n; i++) {
+//     result *= x;
+//     }
+
+//     return result;
+//   }
+
+//   let x = prompt("x?", '');
+//   let n = prompt("n?", '');
+
+//   if (n < 1) {
+//     alert(`Степень ${n} не поддерживается, используйте натуральное число`);
+//   } else {
+//     console.log( pow(x, n) );
+//   }
+
+// const logo = "task";
+// logo.toUpperCase();
+// console.log(logo.toUpperCase());
+// console.log(logo.indexOf('t'));
+
+// function search(){
+//     const result = logo.indexOf('t') 
+//     if (result<0){console.log('Не найдено')}  
+//     else (console.log(result));
+// }
+// search()
+// console.log(logo.slice())
+
+// function circumference(r) {
+//     return parseFloat(r) * 2.0 * Math.PI;
+//   }
+
+//   console.log(circumference(4.567));
+//   // expected output: 28.695307297889173
+
+//   console.log(circumference('4.567abcdefgh'));
+//   // expected output: 28.695307297889173
+
+//   console.log(circumference('abcdefgh'));
+//   // expected output: NaN
